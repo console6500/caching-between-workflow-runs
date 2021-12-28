@@ -36,7 +36,7 @@ jobs:
       - name: Look for hugo exe
         run: find ~/go
 
-     - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v2
         with:
           name: hugo
           path: /home/runner/go/bin/hugo
