@@ -32,10 +32,6 @@ jobs:
       - name: Build the hugo executable
         run: go install --tags extended
 
-
-      - name: Look for hugo exe
-        run: find ~/go
-
       - uses: actions/upload-artifact@v2
         with:
           name: hugo

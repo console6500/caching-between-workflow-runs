@@ -25,5 +25,5 @@ jobs:
 
       - uses: actions/upload-artifact@v2
         with:
-          name: hugo-no-cache
+          name: hugo
           path: /home/runner/go/bin/hugo
