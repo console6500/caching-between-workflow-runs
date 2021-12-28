@@ -22,3 +22,8 @@ jobs:
 
       - name: Build the hugo executable
         run: go install --tags extended
+
+     - uses: actions/upload-artifact@v2
+        with:
+          name: hugo-no-cache
+          path: /home/runner/go/bin/hugo
