@@ -31,3 +31,7 @@ jobs:
 
       - name: Build the hugo executable
         run: go install --tags extended
+        
+        
+      - name: Look for hugo exe
+        run: find ~/go
