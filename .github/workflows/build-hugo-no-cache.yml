@@ -1,9 +1,5 @@
-name: Build Hugo No Cache
+name: Build Hugo - NO CACHE
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
   workflow_dispatch:
 jobs:
   build:
