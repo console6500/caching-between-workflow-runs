@@ -1,22 +1,23 @@
-name: Build Hugo With Cache
+name: Build Hugo - WITH CACHE
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
   workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/cache@v2
-        with:
-          path: |
-            ~/.cache/go-build
-            ~/go/pkg/mod
-          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
-          restore-keys: |
-            ${{ runner.os }}-go-
+    
+      ######################################################################   
+      # THIS WORKFLOW ADDS THE FOLLOWING STEP TO CREATE AND/OR USE A CACHE #
+      - uses: actions/cache@v2                                             #
+        with:                                                              #
+          path: |                                                          #
+            ~/.cache/go-build                                              #
+            ~/go/pkg/mod                                                   #
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}           #
+          restore-keys: |                                                  #
+            ${{ runner.os }}-go-                                           #
+      #                                                                    #
+      ######################################################################   
 
       - name: Check out the code from https://github.com/gohugoio/hugo.git
         uses: actions/checkout@v2
