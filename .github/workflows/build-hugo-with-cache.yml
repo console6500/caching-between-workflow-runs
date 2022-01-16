@@ -7,15 +7,13 @@ jobs:
     steps:
     
       ######################################################################   
-      # THIS WORKFLOW ADDS THE FOLLOWING STEP TO CREATE AND/OR USE A CACHE #
+      # THIS WORKFLOW ADDS THE FOLLOWING STEP TO CREATE OR USE A CACHE     #
       - uses: actions/cache@v2                                             #
         with:                                                              #
           path: |                                                          #
             ~/.cache/go-build                                              #
             ~/go/pkg/mod                                                   #
-          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}           #
-          restore-keys: |                                                  #
-            ${{ runner.os }}-go-                                           #
+          key: ${{ runner.os }}-go-                                        #
       #                                                                    #
       ######################################################################   
 
