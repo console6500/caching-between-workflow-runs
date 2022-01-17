@@ -6,19 +6,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Setup the cache
-        uses: actions/cache@v2
-        with:
-          path: |
-            ~/.cache/go-build
-            ~/go/pkg/mod
-          key: ${{ runner.os }}-go-mod-${{ hashFiles('**/go.sum') }}
-
       - name: Check out the code from https://github.com/gohugoio/hugo.git
         uses: actions/checkout@v2
         with:
           repository: gohugoio/hugo
           ref: stable
+
+      - name: Setup the cache after checkout to reference go.sum file in the key
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cache/go-build
+            ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
 
       - name: Setup go
         uses: actions/setup-go@v2
